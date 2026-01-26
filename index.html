@@ -9,7 +9,7 @@
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">TelamoFly</div>
+            <img src="img/TelamoFlyLogo.png" class="logo" alt="">
             <ul class="nav-menu">
                 <li><a href="#motivos">Inicio</a></li>
                 <li><a href="#habilidades">Equipo</a></li>
@@ -133,33 +133,39 @@
         </div>
     </section>
 
-    <section id="pestel" class="section">
+    <section id="pestel" class="section bg-light">
         <div class="container">
             <h2 class="section-title">Análisis PESTEL</h2>
             <div class="pestel-grid">
-                <div class="pestel-card political">
+                <div class="pestel-card amenaza">
                     <h3>Político</h3>
-                    <p><strong>Amenaza:</strong> Dependencia de decisiones públicas sobre transporte y movilidad sostenible.</p>
+                    <p>Dependencia de decisiones públicas sobre transporte y movilidad sostenible</p>
+                    <span class="badge">Amenaza</span>
                 </div>
-                <div class="pestel-card economic">
+                <div class="pestel-card oportunidad">
                     <h3>Económico</h3>
-                    <p><strong>Oportunidad:</strong> Mercado activo con +300M pasajeros en red AENA 2024. Alto dinamismo turístico en Canarias.</p>
+                    <p>Mercado activo con más de 300M de pasajeros en AENA (2024). Canarias como destino turístico clave</p>
+                    <span class="badge">Oportunidad</span>
                 </div>
-                <div class="pestel-card social">
+                <div class="pestel-card amenaza">
                     <h3>Social</h3>
-                    <p><strong>Amenaza:</strong> Altas expectativas de experiencia digital y procesos eficientes en tiempo real.</p>
+                    <p>Expectativas de cliente y experiencia digital: demanda de inmediatez y eficiencia</p>
+                    <span class="badge">Amenaza</span>
                 </div>
-                <div class="pestel-card technological">
+                <div class="pestel-card amenaza">
                     <h3>Tecnológico</h3>
-                    <p><strong>Amenaza:</strong> Exigencias técnicas de conectividad, sistemas de reservas y control operacional.</p>
+                    <p>Digitalización y exigencias técnicas: sistemas de reservas, control operacional en tiempo real</p>
+                    <span class="badge">Amenaza</span>
                 </div>
-                <div class="pestel-card ecological">
+                <div class="pestel-card amenaza">
                     <h3>Ecológico</h3>
-                    <p><strong>Amenaza:</strong> Expectativas de sostenibilidad, seguimiento de emisiones y combustibles sostenibles.</p>
+                    <p>Expectativa pública y ODS: optimización de emisiones y combustibles sostenibles</p>
+                    <span class="badge">Amenaza</span>
                 </div>
-                <div class="pestel-card legal">
+                <div class="pestel-card amenaza">
                     <h3>Legal</h3>
-                    <p><strong>Amenaza:</strong> Cumplimiento estricto de Ley 21/2003 de Seguridad Aérea y normativa AESA.</p>
+                    <p>Marco aeronáutico y Ley 21/2003 de Seguridad Aérea: requisitos estrictos para proveedores</p>
+                    <span class="badge">Amenaza</span>
                 </div>
             </div>
         </div>
@@ -331,30 +337,38 @@
                     <p class="strategy">Estrategia: Descremación</p>
                 </div>
             </div>
-            <div class="sales-projections">
-                <h3>Proyecciones de Ventas Anuales</h3>
-                <div class="projections-grid">
-                    <div class="projection optimistic">
+
+            <div class="sales-scenarios">
+                <h3>Estimación de Ventas Anuales</h3>
+                <div class="scenario-grid">
+                    <div class="scenario-card optimista">
                         <h4>Escenario Optimista</h4>
-                        <div class="projection-value">1.080.000€</div>
-                        <p>12 aerolíneas</p>
+                        <p class="scenario-clients">12 aerolíneas</p>
+                        <p class="scenario-revenue">1.080.000€</p>
+                        <p>Gran aceptación del mercado</p>
                     </div>
-                    <div class="projection realistic">
+                    <div class="scenario-card realista">
                         <h4>Escenario Realista</h4>
-                        <div class="projection-value">720.000€</div>
-                        <p>8 aerolíneas</p>
+                        <p class="scenario-clients">8 aerolíneas</p>
+                        <p class="scenario-revenue">720.000€</p>
+                        <p>Penetración moderada</p>
                     </div>
-                    <div class="projection pessimistic">
+                    <div class="scenario-card pesimista">
                         <h4>Escenario Pesimista</h4>
-                        <div class="projection-value">450.000€</div>
-                        <p>5 aerolíneas</p>
+                        <p class="scenario-clients">5 aerolíneas</p>
+                        <p class="scenario-revenue">450.000€</p>
+                        <p>Entrada lenta al mercado</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="dafo" class="section alt-bg">
+    <section id="puentoMuerto">
+        <iframe src="puento-muerto-1.html" frameborder="0"></iframe>
+    </section>
+
+    <section id="dafo" class="section bg-light">
         <div class="container">
             <h2 class="section-title">Análisis DAFO</h2>
             <div class="dafo-grid">
@@ -362,21 +376,20 @@
                     <h3>Fortalezas</h3>
                     <ul>
                         <li>Infraestructura sólida de bases de datos</li>
-                        <li>Alta accesibilidad web y APIs</li>
-                        <li>Integración con sistemas aeronáuticos</li>
-                        <li>Seguridad avanzada de datos</li>
-                        <li>Arquitectura escalable</li>
-                        <li>Soporte técnico especializado</li>
+                        <li>Alta accesibilidad mediante plataformas web y APIs</li>
+                        <li>Integración con sistemas aeronáuticos estándar</li>
+                        <li>Medidas avanzadas de seguridad</li>
+                        <li>Arquitectura escalable con soporte técnico especializado</li>
                     </ul>
                 </div>
                 <div class="dafo-card debilidades">
                     <h3>Debilidades</h3>
                     <ul>
-                        <li>Dependencia tecnológica</li>
+                        <li>Fuerte dependencia tecnológica</li>
                         <li>Altos costes de mantenimiento</li>
-                        <li>Complejidad para personal no técnico</li>
-                        <li>Falta de diferenciación inicial</li>
-                        <li>Presencia internacional limitada</li>
+                        <li>Complejidad de uso para personal no técnico</li>
+                        <li>Falta de diferenciación frente a grandes competidores</li>
+                        <li>Presencia limitada en el mercado internacional</li>
                     </ul>
                 </div>
                 <div class="dafo-card oportunidades">
@@ -386,18 +399,17 @@
                         <li>Digitalización continua del sector</li>
                         <li>Necesidad de sistemas centralizados</li>
                         <li>Expansión a nuevos mercados</li>
-                        <li>Alianzas estratégicas</li>
-                        <li>Aerolíneas low-cost emergentes</li>
+                        <li>Alianzas estratégicas con aeropuertos y aerolíneas low-cost</li>
                     </ul>
                 </div>
                 <div class="dafo-card amenazas">
                     <h3>Amenazas</h3>
                     <ul>
-                        <li>Competencia consolidada</li>
-                        <li>Riesgo de ciberataques</li>
+                        <li>Competencia con proveedores consolidados</li>
+                        <li>Riesgo constante de ciberataques</li>
                         <li>Cambios regulatorios estrictos</li>
-                        <li>Exigencia de disponibilidad total</li>
-                        <li>Fluctuaciones del sector</li>
+                        <li>Exigencia de disponibilidad casi total</li>
+                        <li>Fluctuaciones del sector aeronáutico</li>
                     </ul>
                 </div>
             </div>

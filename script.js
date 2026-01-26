@@ -23,22 +23,23 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Animate elements on scroll
     const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
     };
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.style.animation = 'fadeInUp 0.8s ease forwards';
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
-    document.querySelectorAll('.card, .service-card, .pricing-card, .dafo-card, .pestel-card, .team-member').forEach(el => {
-        el.style.opacity = '0';
+    document.querySelectorAll(
+      '.card, .service-card, .pricing-card, .dafo-card, .pestel-card, .team-member'
+    ).forEach(el => {
         observer.observe(el);
     });
 
