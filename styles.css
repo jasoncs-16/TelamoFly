@@ -697,12 +697,21 @@ body {
 }
 
 .scenario-card.pesimista h4 {
-    color: #ea580c;
+    color: #ea0c0c;
 }
 
 .scenario-card.pesimista .scenario-revenue {
-    color: #ea580c;
+    color: #ea0c0c;
 }
+
+/* Iframes */
+iframe {
+    border-radius: 10px;
+    margin-left: 40px;
+    width: 580px;
+    height: 480px;
+}
+
 
 /* DAFO */
 .dafo-grid {

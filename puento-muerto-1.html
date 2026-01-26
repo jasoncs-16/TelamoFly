@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Costes fijos, Precio y Ingresos totales</title>
+    <style>
+        body {
+            margin-left: 10px;
+            position: fixed;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #494949;
+        }
+
+        body::-webkit-scrollbar {
+            display: none;
+        }
+
+        .chart-container {
+            width: 500px;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .chart-title {
+            text-align: center;
+            color: #666;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .legend-color {
+            width: 30px;
+            height: 3px;
+        }
+
+        .blue { background-color: #4285f4; }
+        .red { background-color: #ea4335; }
+        .yellow { background-color: #fbbc04; }
+
+        canvas {
+            width: 500px;
+            display: block;
+            border: 1px solid #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <div class="chart-container">
+        <div class="chart-title">Costes fijos, Precio y Ingresos totales</div>
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color blue"></div>
+                <span>Costes fijos</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color red"></div>
+                <span>Precio</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color yellow"></div>
+                <span>Ingresos totales</span>
+            </div>
+        </div>
+        <canvas id="chart" width="600" height="400"></canvas>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('chart');
+        const ctx = canvas.getContext('2d');
+
+        const width = canvas.width;
+        const height = canvas.height;
+        const padding = 50;
+        const chartWidth = width - padding * 2;
+        const chartHeight = height - padding * 2;
+
+        // Configuración de escala
+        const maxQ = 40;
+        const maxY = 60000;
+
+        // Función para convertir coordenadas de datos a píxeles
+        function toPixelX(q) {
+            return padding + (q / maxQ) * chartWidth;
+        }
+
+        function toPixelY(y) {
+            return height - padding - (y / maxY) * chartHeight;
+        }
+
+        // Dibujar ejes
+        ctx.strokeStyle = '#d0d0d0';
+        ctx.lineWidth = 1;
+
+        // Eje Y
+        ctx.beginPath();
+        ctx.moveTo(padding, padding);
+        ctx.lineTo(padding, height - padding);
+        ctx.lineTo(width - padding, height - padding);
+        ctx.stroke();
+
+        // Líneas de cuadrícula horizontales
+        ctx.strokeStyle = '#f0f0f0';
+        for (let i = 0; i <= 6; i++) {
+            const y = toPixelY((maxY / 6) * i);
+            ctx.beginPath();
+            ctx.moveTo(padding, y);
+            ctx.lineTo(width - padding, y);
+            ctx.stroke();
+        }
+
+        // Líneas de cuadrícula verticales
+        for (let i = 0; i <= 4; i++) {
+            const x = toPixelX((maxQ / 4) * i);
+            ctx.beginPath();
+            ctx.moveTo(x, padding);
+            ctx.lineTo(x, height - padding);
+            ctx.stroke();
+        }
+
+        // Etiquetas eje Y
+        ctx.fillStyle = '#666';
+        ctx.font = '12px Arial';
+        ctx.textAlign = 'right';
+        for (let i = 0; i <= 6; i++) {
+            const value = (maxY / 6) * i;
+            const y = toPixelY(value);
+            ctx.fillText(value.toLocaleString(), padding - 10, y + 4);
+        }
+
+        // Etiquetas eje X
+        ctx.textAlign = 'center';
+        for (let i = 0; i <= 4; i++) {
+            const value = (maxQ / 4) * i;
+            const x = toPixelX(value);
+            ctx.fillText(value, x, height - padding + 20);
+        }
+
+        // Etiqueta "Q"
+        ctx.fillText('Q', width / 2, height - 10);
+
+        // Dibujar líneas de datos
+        ctx.lineWidth = 2;
+
+        // Costes fijos (azul) - línea horizontal
+        ctx.strokeStyle = '#4285f4';
+        ctx.beginPath();
+        ctx.moveTo(toPixelX(0), toPixelY(4000));
+        ctx.lineTo(toPixelX(40), toPixelY(4000));
+        ctx.stroke();
+
+        // Precio (rojo) - línea horizontal
+        ctx.strokeStyle = '#ea4335';
+        ctx.beginPath();
+        ctx.moveTo(toPixelX(0), toPixelY(1666));
+        ctx.lineTo(toPixelX(40), toPixelY(1666));
+        ctx.stroke();
+
+        // Ingresos totales (amarillo) - línea ascendente
+        ctx.strokeStyle = '#fbbc04';
+        ctx.beginPath();
+        ctx.moveTo(toPixelX(0), toPixelY(0));
+        ctx.lineTo(toPixelX(40), toPixelY(60000));
+        ctx.stroke();
+    </script>
+</body>
+</html>
