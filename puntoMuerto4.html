@@ -97,7 +97,7 @@
 
         // Configuración de escala
         const maxQ = 40;
-        const maxY = 60000;
+        const maxY = 100000;
 
         // Función para convertir coordenadas de datos a píxeles
         function toPixelX(q) {
@@ -143,7 +143,7 @@
         ctx.font = '12px Arial';
         ctx.textAlign = 'right';
         for (let i = 0; i <= 6; i++) {
-            const value = (maxY / 6) * i;
+            const value = 25000 * i;
             const y = toPixelY(value);
             ctx.fillText(value.toLocaleString(), padding - 10, y + 4);
         }
@@ -180,7 +180,7 @@
         ctx.strokeStyle = '#fbbc04';
         ctx.beginPath();
         ctx.moveTo(toPixelX(0), toPixelY(0));
-        ctx.lineTo(toPixelX(40), toPixelY(60000));
+        ctx.lineTo(toPixelX(40), toPixelY(87500));
         ctx.stroke();
     </script>
 </body>
