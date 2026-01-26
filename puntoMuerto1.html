@@ -12,11 +12,15 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #494949;
+            min-height: 100vh;
         }
 
         body::-webkit-scrollbar {
             display: none;
+        }
+
+        h2 {
+            text-align: center;
         }
 
         .chart-container {
@@ -24,13 +28,13 @@
             background: white;
             padding: 30px;
             border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.4);
         }
 
         .chart-title {
             text-align: center;
             color: #666;
-            font-size: 18px;
+            font-size: 8px;
             margin-bottom: 10px;
         }
 
@@ -97,7 +101,7 @@
 
         // Configuración de escala
         const maxQ = 40;
-        const maxY = 60000;
+        const maxY = 150000;
 
         // Función para convertir coordenadas de datos a píxeles
         function toPixelX(q) {
@@ -145,7 +149,7 @@
         for (let i = 0; i <= 6; i++) {
             const value = (maxY / 6) * i;
             const y = toPixelY(value);
-            ctx.fillText(value.toLocaleString(), padding - 10, y + 4);
+            ctx.fillText(value.toLocaleString(), padding - 5, y + 4);
         }
 
         // Etiquetas eje X
@@ -180,7 +184,7 @@
         ctx.strokeStyle = '#fbbc04';
         ctx.beginPath();
         ctx.moveTo(toPixelX(0), toPixelY(0));
-        ctx.lineTo(toPixelX(40), toPixelY(60000));
+        ctx.lineTo(toPixelX(40), toPixelY(150000));
         ctx.stroke();
     </script>
 </body>
